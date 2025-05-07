@@ -37,6 +37,11 @@ const LoginScreen = () => {
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>로그인</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.naverButton} onPress={() => console.log('네이버 로그인 시도')}>
+        <Text style={styles.naverButtonText}>네이버로 로그인</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };
@@ -76,6 +81,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+
+  naverButton: {
+    height: 48,
+    backgroundColor: '#03C75A', // 네이버 녹색
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  naverButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  
 });
 
 export default LoginScreen;
