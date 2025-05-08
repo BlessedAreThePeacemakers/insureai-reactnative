@@ -17,7 +17,7 @@ const LoginScreen = () => {
 
       <TextInput
         style={styles.input}
-        placeholder="이메일"
+        placeholder="이메일 test"
         placeholderTextColor="#999"
         value={email}
         onChangeText={setEmail}
