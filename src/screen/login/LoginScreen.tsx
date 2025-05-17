@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
+  const navigation = useNavigation(); // ✅ 여기에서만 호출 가능
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     console.log('이메일:', email);
     console.log('비밀번호:', password);
-    // 여기서 API 호출 등 로그인 로직 처리
+    // 로그인 성공 처리
+    navigation.navigate('MainHome'); // ✅ 이동
   };
 
   return (
@@ -17,7 +21,7 @@ const LoginScreen = () => {
 
       <TextInput
         style={styles.input}
-        placeholder="이메일 test"
+        placeholder="이메일"
         placeholderTextColor="#999"
         value={email}
         onChangeText={setEmail}
@@ -40,6 +44,10 @@ const LoginScreen = () => {
 
       <TouchableOpacity style={styles.naverButton} onPress={() => console.log('네이버 로그인 시도')}>
         <Text style={styles.naverButtonText}>네이버로 로그인</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.googleButton} onPress={() => console.log('구글 로그인 시도')}>
+        <Text style={styles.googleButtonText}>구글로 로그인</Text>
       </TouchableOpacity>
 
     </View>
@@ -95,6 +103,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+
+  googleButton: {
+    height: 48,
+    backgroundColor: '#DB4437', // Google 빨간색
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  googleButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },  
   
 });
 
